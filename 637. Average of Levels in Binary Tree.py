@@ -5,7 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
+    def averageOfLevels(self, root):
         res = []
         def levelorder(node,level):
             if not node:
