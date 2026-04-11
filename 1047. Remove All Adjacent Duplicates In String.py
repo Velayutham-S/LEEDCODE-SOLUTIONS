@@ -11,3 +11,5 @@ class Solution:
             else:
                 stack.append(s[i])
         return "".join(stack)
+s1 = Solution()
+print(s1.removeDuplicates("abbaca"))
