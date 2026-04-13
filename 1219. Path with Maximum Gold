@@ -1,0 +1,19 @@
+class Solution:
+    def getMaximumGold(self, grid):
+        def maximumgold(i, j, matrix):
+            if i < 0 or j < 0 or i >= len(matrix) or j >= len(matrix[0]) or matrix[i][j] == 0:
+                return 0
+            gold = matrix[i][j]
+            matrix[i][j] = 0  
+            down = maximumgold(i+1, j, matrix)
+            up = maximumgold(i-1, j, matrix)
+            right = maximumgold(i, j+1, matrix)
+            left = maximumgold(i, j-1, matrix)
+            matrix[i][j] = gold
+            return gold + max(down, up, right, left)
+        res = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] != 0:
+                    res = max(res, maximumgold(i, j, grid))
+        return res
